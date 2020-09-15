@@ -10,6 +10,7 @@ function computerPlay() {
   }
 }
 
+
 // function to play 5 rounds.
 function game() {
   for (let i = 0; i < 5; i++) {
@@ -21,15 +22,22 @@ function game() {
       } else if (playerSelection === "rock" && computerSelection === "paper") {
         console.log("You Lose! Paper beats Rock");
         return (roundScore = 1);
-      } else {
+      } else if (playerSelection === "rock" && computerSelection === "scissors") {
         console.log("You Win! Rock beats Scissors");
         return (roundScore = 2);
+      } else {
+        return 'error';
       }
     }
-    const playerSelection = "RoCk".toLowerCase();
+    
     const computerSelection = computerPlay();
-    console.log(playRound(playerSelection, computerSelection));
-
+    const playerSelection = prompt('Please make your choice');
+    if ( playerSelection.toLowerCase() === 'rock' || playerSelection.toLowerCase() === 'paper' || playerSelection.toLowerCase() === 'scissors' ) {
+      console.log(playRound(playerSelection, computerSelection));
+    } else { 
+      alert('Please enter a valid input (rock, paper or scissors)');
+    }
+    
     // keep score
     if (roundScore === 1) {
       computerScore++;

@@ -1,18 +1,26 @@
 // computer play
-function computerPlay(max) {
-  let randomNumber = Math.floor(Math.random() * Math.floor(max));
+function computerPlay() {
+  let randomNumber = Math.floor(Math.random() * Math.floor(3));
   if (randomNumber === 0) {
-    computerChoice = "Rock";
+    return 'Rock';
   } else if (randomNumber === 1) {
-    computerChoice = "Paper";
+    return 'Paper';
   } else {
-    computerChoice = "Scissors";
+    return 'Scissors';
   }
-  return;
 }
 
+// play one round
+function playRound(playerSelection, computerSelection) {
+  if (playerSelection === 'Rock' && computerSelection === 'Rock') {
+    return 'It\'s a draw';
+  } else if (playerSelection === 'Rock' && computerSelection === 'Paper') {
+    return 'Computer wins';
+  } else { 
+    return 'Player wins';
+  }
+ }
 
-
-// call functions
-computerPlay(3);
-console.log(`computer choice: ${computerChoice}`);
+const playerSelection = 'Rock'
+const computerSelection = computerPlay()
+console.log(playRound(playerSelection, computerSelection))

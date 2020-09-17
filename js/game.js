@@ -1,6 +1,6 @@
 // function to return a random computerchoice.
 function computerPlay() {
-  let randomNumber = Math.floor(Math.random() * Math.floor(3));
+  const randomNumber = Math.floor(Math.random() * Math.floor(3));
   if (randomNumber === 0) {
     return "rock";
   } else if (randomNumber === 1) {
@@ -9,7 +9,6 @@ function computerPlay() {
     return "scissors";
   }
 }
-
 
 // function to play 5 rounds.
 function game() {
@@ -30,14 +29,16 @@ function game() {
       }
     }
     
+    const playerPrompt = prompt('Please enter rock, paper or scissors');
+    const playerSelection = playerPrompt.toLowerCase();
     const computerSelection = computerPlay();
-    const playerSelection = prompt('Please make your choice');
-    if ( playerSelection.toLowerCase() === 'rock' || playerSelection.toLowerCase() === 'paper' || playerSelection.toLowerCase() === 'scissors' ) {
+    if (playerSelection === 'rock') {
       console.log(playRound(playerSelection, computerSelection));
-    } else { 
-      alert('Please enter a valid input (rock, paper or scissors)');
+    } else {
+      alert("no valid option was selected");
     }
     
+  
     // keep score
     if (roundScore === 1) {
       computerScore++;
@@ -51,6 +52,7 @@ function game() {
 let roundScore;
 let computerScore = 0;
 let playerScore = 0;
+
 
 // call function to play the game
 game();
